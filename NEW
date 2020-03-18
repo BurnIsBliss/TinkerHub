@@ -1,0 +1,44 @@
+class tech:
+    k=l=0
+    mentor=[]
+    learner=[]
+
+    def __init__(self,name):
+        self.name=name
+        self.stack=[]
+        q=int(input('Enter no. of interest/expertise'))
+        i=0
+        while i<q:
+          m=input('Interest/expertise?')
+          self.addStacks(m)
+          i+=1
+        q=input('Is the participant a Mentor or a Learner ?') 
+        self.setMentorOrLearner(q) 
+    
+    def addStacks(self,expertise):
+        self.stack.append(expertise)
+    
+    def setMentorOrLearner(self,setting):
+        if setting=="Mentor":
+           t=input("Enter available time in hours")
+           self.__setAvailableTime(t)
+           tech.mentor.append(self.name)
+           tech.k+=1
+               
+        elif setting=="Learner":
+           tech.learner.append(self.name)
+           tech.l+=1
+
+    def __setAvailableTime(self,time):
+        self.time=time
+        
+    def getMentor(self,stac,tim):
+        i=0
+        while i<tech.k :
+          for j in self.stack :
+            if (j==stac and self.time==tim ):
+              print ("Your Mentor(s) is:") 
+              print (self.name)
+          i+=1
+        
+
